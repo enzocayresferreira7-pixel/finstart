@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>FinStart | Simulador 50/30/20</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="logo_FinStart.png" alt="Logo da FinStart" width="150">
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="projeto.html">Sobre o Projeto</a></li>
+                <li><a href="simulador.html">Simulador</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Simulador de Orçamento Ideal</h1>
+        <p>Aprenda a dividir o seu dinheiro de forma inteligente aplicando a Regra 50/30/20 para garantir o seu futuro sem deixar de aproveitar o presente.</p>
+        
+        <div class="simulador-box">
+            <label for="receita">Qual a sua renda mensal líquida? (R$)</label>
+            <input type="number" id="receita" placeholder="Ex: 4000">
+
+            <button onclick="calcularOrcamento()">Calcular Divisão Ideal</button>
+
+            <div id="resultado" style="margin-top: 20px; display: none; background-color: #111; padding: 15px; border-radius: 8px; border-left: 4px solid #D4AF37;">
+                <h3 style="color: #D4AF37; margin-bottom: 15px;">O seu planeamento recomendado:</h3>
+                
+                <p><strong>🏠 Necessidades Básicas (50%):</strong> R$ <span id="necessidades" style="color: #E0E0E0;"></span></p>
+                <p style="font-size: 0.9em; color: #888; margin-bottom: 10px;">Despesas essenciais como renda, contas de água/luz, mercado e transporte.</p>
+                
+                <p><strong>🛒 Desejos Pessoais (30%):</strong> R$ <span id="desejos" style="color: #E0E0E0;"></span></p>
+                <p style="font-size: 0.9em; color: #888; margin-bottom: 10px;">Lazer, jantares fora, subscrições (Netflix, Spotify) e compras não essenciais.</p>
+                
+                <p><strong>📈 Poupança e Investimento (20%):</strong> R$ <span id="poupanca" style="color: #4CAF50; font-weight: bold;"></span></p>
+                <p style="font-size: 0.9em; color: #888;">Criação de reserva de emergência e investimentos para objetivos futuros.</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function calcularOrcamento() {
+            let receita = document.getElementById('receita').value;
+            let resultadoDiv = document.getElementById('resultado');
+
+            if(receita === "" || receita <= 0) {
+                alert("Por favor, insira um valor válido para a sua renda.");
+                resultadoDiv.style.display = "none";
+                return;
+            }
+
+            let valor = parseFloat(receita);
+
+            let valorNecessidades = valor * 0.50;
+            let valorDesejos = valor * 0.30;
+            let valorPoupanca = valor * 0.20;
+
+            document.getElementById('necessidades').innerText = valorNecessidades.toFixed(2);
+            document.getElementById('desejos').innerText = valorDesejos.toFixed(2);
+            document.getElementById('poupanca').innerText = valorPoupanca.toFixed(2);
+
+            resultadoDiv.style.display = "block";
+        }
+    </script>
+</body>
+</html>
