@@ -34,7 +34,9 @@ const publicos = new Set([
   "style.css",
   "logo_FinStart.png",
 ]);
-export function criarServidor({ db, secret, secure = false }) {
+export function criarServidor({ db, secret, secure = false, publicOrigin }) {
+  if (publicOrigin && (new URL(publicOrigin).origin !== publicOrigin || (secure && !publicOrigin.startsWith("https://"))))
+    throw Error("PUBLIC_ORIGIN deve ser a origem exata do site, sem barra final e com HTTPS em produção.");
   if (!secret || secret.length < 32)
     throw Error("Defina JWT_SECRET com pelo menos 32 caracteres.");
   const c = controllers(db, secret);
@@ -64,7 +66,7 @@ export function criarServidor({ db, secret, secure = false }) {
           !["GET", "HEAD"].includes(req.method) &&
           req.headers.origin &&
           req.headers.origin !==
-            `http${secure ? "s" : ""}://${req.headers.host}`
+            (publicOrigin || `http${secure ? "s" : ""}://${req.headers.host}`)
         )
           return enviar(403, { erro: "Origem não permitida." });
         let body = {};
@@ -202,6 +204,8 @@ if (
   process.argv[1] &&
   resolve(process.argv[1]) === fileURLToPath(import.meta.url)
 ) {
+  if (process.env.NODE_ENV === "production" && process.env.DB_DRIVER !== "mysql")
+    throw Error("Produção exige DB_DRIVER=mysql e banco persistente configurado.");
   const db =
     process.env.DB_DRIVER === "mysql"
       ? await conectarMySQL()
@@ -210,9 +214,10 @@ if (
     db,
     secret: process.env.JWT_SECRET,
     secure: process.env.NODE_ENV === "production",
+    publicOrigin: process.env.PUBLIC_ORIGIN,
   })
-    .listen(Number(process.env.PORT || 3000), "127.0.0.1", () =>
-      console.log("FinStart: http://127.0.0.1:" + (process.env.PORT || 3000)),
+    .listen(Number(process.env.PORT || 3000), process.env.HOST || (process.env.NODE_ENV === "production" ? "0.0.0.0" : "127.0.0.1"), () =>
+      console.log("FinStart: servidor iniciado na porta " + (process.env.PORT || 3000)),
     )
     .on("error", (error) => {
       console.error(

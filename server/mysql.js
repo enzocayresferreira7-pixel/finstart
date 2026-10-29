@@ -56,6 +56,12 @@ export async function conectarMySQL() {
     dateStrings: true,
     connectionLimit: 5,
     timezone: "Z",
+    ...(process.env.DB_SSL === "true" ? {
+      ssl: {
+        rejectUnauthorized: true,
+        ...(process.env.DB_SSL_CA ? { ca: process.env.DB_SSL_CA.replace(/\\n/g, "\n") } : {}),
+      },
+    } : {}),
   });
   pool.on("connection", (connection) =>
     connection.query("SET time_zone = '+00:00'"),

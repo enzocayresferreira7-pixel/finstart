@@ -1,0 +1,11 @@
+.env
+.env.*
+!.env.example
+data/
+node_modules/
+backups/
+tmp/
+dist/
+.vercel/
+*.log
+*.bundle
