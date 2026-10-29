@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <script src="ambiente.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>FinStart | Minha conta</title>
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="conta.js"></script>
+    <script type="module" src="shell.js"></script>
+    <meta
+      name="description"
+      content="FinStart | Minha conta: educação financeira, simulações e planejamento para jovens."
+    />
+    <meta name="robots" content="noindex,nofollow" />
+  </head>
+  <body>
+    <a class="skip-link" href="#principal">Pular para o conteúdo</a>
+    <header>
+      <a href="index.html"
+        ><img src="logo_FinStart.png" alt="FinStart" width="110"
+      /></a>
+      <nav aria-label="Principal">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="simulador.html">Orçamento</a></li>
+          <li><a href="juros.html">Juros compostos</a></li>
+          <li><a href="metas.html">Metas</a></li>
+          <li><a href="aprender.html">Aprender</a></li>
+          <li><a href="comparar.html">Comparar</a></li>
+          <li><a href="projeto.html">Sobre</a></li>
+
+          <li><a href="conta.html">Meu painel</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main id="principal">
+      <span class="eyebrow">SEU ESPAÇO FINSTART</span>
+      <h1>Meu painel</h1>
+      <p id="mensagem" role="status" aria-live="polite"></p>
+      <section id="formularios">
+        <h2>Entrar</h2>
+        <form id="login" method="post" action="/api/login">
+          <label for="login-email">E-mail</label
+          ><input
+            id="login-email"
+            name="email"
+            type="email"
+            autocomplete="username"
+            required
+          /><label for="login-senha">Senha</label
+          ><input
+            id="login-senha"
+            name="senha"
+            type="password"
+            autocomplete="current-password"
+            maxlength="128"
+            required
+          /><button>Entrar</button>
+        </form>
+        <h2>Criar conta</h2>
+        <form id="cadastro" method="post" action="/api/cadastro">
+          <label for="nome">Nome</label
+          ><input
+            id="nome"
+            name="nome"
+            minlength="3"
+            maxlength="50"
+            autocomplete="name"
+            aria-describedby="contador"
+            required
+          /><small id="contador">0/50 caracteres</small
+          ><label for="email">E-mail</label
+          ><input
+            id="email"
+            name="email"
+            type="email"
+            maxlength="254"
+            autocomplete="email"
+            required
+          /><label for="senha">Senha</label
+          ><input
+            id="senha"
+            name="senha"
+            type="password"
+            minlength="8"
+            maxlength="128"
+            autocomplete="new-password"
+            aria-describedby="forca"
+            required
+          /><small id="forca"
+            >Use pelo menos 8 caracteres, com letra e número.</small
+          ><button id="alternar" type="button" aria-pressed="false">
+            Mostrar senha</button
+          ><button>Criar conta</button>
+        </form>
+      </section>
+      <section id="perfil" hidden>
+        <h2 id="boas-vindas"></h2>
+        <p>Seus objetivos e ferramentas de planejamento em um só lugar.</p>
+        <p id="painel-status" role="status"></p>
+        <div id="indicadores" class="grid"></div>
+        <div class="acoes">
+          <a class="botao" href="simulador.html">Planejar orçamento</a
+          ><a class="botao" href="juros.html">Simular juros</a
+          ><a class="botao" href="metas.html">Gerenciar metas</a
+          ><a class="botao" href="comparar.html">Comparar cenários</a>
+        </div>
+        <h2>Minhas metas</h2>
+        <div id="painel-metas" class="grid"></div>
+        <h2>Simulações recentes</h2>
+        <div id="painel-simulacoes" class="grid"></div>
+        <button id="sair">Sair</button>
+      </section>
+    </main>
+  </body>
+</html>

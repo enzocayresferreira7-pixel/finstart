@@ -1,32 +1,154 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <script src="ambiente.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>FinStart | Sobre o Projeto</title>
-    <link rel="stylesheet" href="style.css">
-    <meta name="description" content="Conheça o FinStart, uma plataforma de educação e planejamento financeiro criada para tornar as finanças mais simples e acessíveis.">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+    <meta
+      name="description"
+      content="Conheça o FinStart, uma plataforma de educação e planejamento financeiro criada para tornar as finanças mais simples e acessíveis."
+    />
+    <script type="module" src="shell.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#principal">Pular para o conteúdo</a>
     <header>
-        <img src="logo_FinStart.png" alt="Logo da FinStart" width="150">
-        <nav>
-            <ul>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="projeto.html">Sobre o Projeto</a></li>
-                <li><a href="simulador.html">Simulador</a></li>
-            </ul>
-        </nav>
+      <a href="index.html"
+        ><img src="logo_FinStart.png" alt="FinStart" width="110"
+      /></a>
+      <nav aria-label="Principal">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="simulador.html">Orçamento</a></li>
+          <li><a href="juros.html">Juros compostos</a></li>
+          <li><a href="metas.html">Metas</a></li>
+          <li><a href="aprender.html">Aprender</a></li>
+          <li><a href="comparar.html">Comparar</a></li>
+          <li><a href="projeto.html">Sobre</a></li>
+
+          <li><a href="conta.html">Meu painel</a></li>
+        </ul>
+      </nav>
     </header>
 
-    <main>
-        <h1>Sobre a FinStart</h1>
-        <p>A FinStart é uma plataforma web gratuita de educação financeira e planejamento, voltada para jovens e pessoas com pouco conhecimento sobre finanças.</p>
-
-        <h2>Nosso objetivo</h2>
-        <p>A FinStart tem como objetivo facilitar o acesso à educação financeira, ajudando jovens a organizar suas finanças, planejar seus objetivos e tomar decisões financeiras mais conscientes.</p>
-
-        <h2>Como a FinStart pode ajudar</h2>
-        <p>A FinStart reúne conteúdo educacional e ferramentas práticas de simulação e planejamento em um único lugar, permitindo que o usuário aprenda, simule e planeje seus objetivos financeiros de forma simples e acessível.</p>
+    <main class="sobre">
+      <section class="sobre-hero" aria-labelledby="sobre-titulo">
+        <div>
+          <span class="eyebrow">SOBRE A FINSTART</span>
+          <h1 id="sobre-titulo">
+            O primeiro passo para cuidar do seu <em>futuro.</em>
+          </h1>
+          <p>
+            Entender o dinheiro não precisa ser complicado. A FinStart aproxima
+            a educação financeira do dia a dia de quem está começando.
+          </p>
+          <a class="botao" href="simulador.html"
+            >Começar pelo meu orçamento ↗</a
+          >
+        </div>
+        <aside class="sobre-manifesto">
+          <span class="eyebrow">NOSSA PROPOSTA</span>
+          <p class="manifesto-frase">
+            Conhecimento que vira<br /><strong>planejamento.</strong
+            ><br />Planejamento que vira<br /><strong>possibilidade.</strong>
+          </p>
+          <div class="manifesto-base">
+            <span class="selo">F</span
+            ><span>FinStart<br /><small>Invista em conhecimento.</small></span>
+          </div>
+        </aside>
+      </section>
+      <section class="sobre-missao">
+        <span class="eyebrow">POR QUE EXISTIMOS</span>
+        <div>
+          <h2>Entre o primeiro salário<br />e os próximos sonhos.</h2>
+          <p>
+            Começar a trabalhar, entrar na faculdade ou assumir as próprias
+            contas traz decisões novas. Nosso objetivo é ajudar jovens de 16 a
+            30 anos a entender essas escolhas, organizar o orçamento e construir
+            hábitos de planejamento.
+          </p>
+        </div>
+      </section>
+      <section aria-labelledby="pratica-titulo">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">DA IDEIA À PRÁTICA</span>
+            <h2 id="pratica-titulo">Aprender fazendo.</h2>
+          </div>
+          <p>Três formas de dar o próximo passo.</p>
+        </div>
+        <div class="grid sobre-passos">
+          <article class="card">
+            <span class="passo-numero">01</span>
+            <h3>Entenda seu presente</h3>
+            <p>
+              Explore a regra 50/30/20 e visualize uma divisão da renda entre
+              necessidades, desejos e futuro.
+            </p>
+            <a href="simulador.html">Organizar meu orçamento →</a>
+          </article>
+          <article class="card">
+            <span class="passo-numero">02</span>
+            <h3>Enxergue o longo prazo</h3>
+            <p>
+              Experimente diferentes valores, aportes e prazos para compreender
+              o efeito dos juros compostos.
+            </p>
+            <a href="juros.html">Explorar juros compostos →</a>
+          </article>
+          <article class="card">
+            <span class="passo-numero">03</span>
+            <h3>Dê nome aos seus planos</h3>
+            <p>
+              Crie uma meta financeira e acompanhe o valor que você já conseguiu
+              guardar para alcançá-la.
+            </p>
+            <a href="metas.html">Planejar uma meta →</a>
+          </article>
+        </div>
+      </section>
+      <section class="sobre-origem" aria-labelledby="origem-titulo">
+        <div>
+          <span class="eyebrow">CONSTRUÍDO NA UNIVERSIDADE</span>
+          <h2 id="origem-titulo">
+            Um projeto para levar<br />o aprendizado adiante.
+          </h2>
+          <p>
+            A FinStart nasceu como Projeto Integrador e Extensionista de Bancos
+            de Dados Relacionais da PUC-Campinas, unindo desenvolvimento web e
+            educação financeira.
+          </p>
+          <div class="ods">
+            <span>ODS 4 · Educação de Qualidade</span
+            ><span>ODS 8 · Trabalho Decente e Crescimento Econômico</span>
+          </div>
+        </div>
+        <div class="sobre-equipe">
+          <h3>Quem desenvolve</h3>
+          <ul>
+            <li>Eduardo dos Santos Fernandez</li>
+            <li>Enzo Cayres Ferreira</li>
+            <li>Gabriel Polli Perin</li>
+            <li>Paulo Henrique Scavariello Guimarães</li>
+            <li>Yuri Kikuchi</li>
+          </ul>
+          <p>Professor orientador<br /><strong>Felipe Cavalaro</strong></p>
+        </div>
+      </section>
+      <section class="sobre-convite">
+        <div>
+          <span class="eyebrow">SEU PRÓXIMO PASSO</span>
+          <h2>Um futuro mais claro<br />começa com um plano.</h2>
+          <p>
+            Use as ferramentas gratuitamente e crie uma conta para salvar
+            simulações e acompanhar suas metas.
+          </p>
+        </div>
+        <a class="botao" href="conta.html">Acessar meu painel ↗</a>
+      </section>
     </main>
-</body>
+  </body>
 </html>

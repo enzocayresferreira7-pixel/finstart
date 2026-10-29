@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <script src="ambiente.js"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Comparar cenários na FinStart: aprenda, simule e planeje."
+    />
+    <title>FinStart | Comparar cenários</title>
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="comparar.js"></script>
+    <script type="module" src="shell.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#principal">Pular para o conteúdo</a>
+    <header>
+      <a href="index.html"
+        ><img src="logo_FinStart.png" alt="FinStart" width="110"
+      /></a>
+      <nav aria-label="Principal">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="simulador.html">Orçamento</a></li>
+          <li><a href="juros.html">Juros compostos</a></li>
+          <li><a href="metas.html">Metas</a></li>
+          <li><a href="aprender.html">Aprender</a></li>
+          <li><a href="comparar.html">Comparar</a></li>
+          <li><a href="projeto.html">Sobre</a></li>
+
+          <li><a href="conta.html">Meu painel</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main id="principal">
+      <span class="eyebrow">EXPLORE POSSIBILIDADES</span>
+      <h1>Mesmo plano, cenários diferentes</h1>
+      <p>
+        Compare três taxas anuais hipotéticas. São exemplos matemáticos, sem
+        vínculo com produtos ou cotações do mercado.
+      </p>
+      <form id="comparar-form">
+        <fieldset>
+          <legend>Seu plano de aportes</legend>
+          <div class="grid">
+            <div>
+              <label for="inicial">Valor inicial (R$)</label
+              ><input
+                id="inicial"
+                type="number"
+                min="0"
+                max="1000000000"
+                step="1"
+                value="1000"
+                required
+              />
+            </div>
+            <div>
+              <label for="aporte">Aporte mensal (R$)</label
+              ><input
+                id="aporte"
+                type="number"
+                min="0"
+                max="1000000000"
+                step="1"
+                value="200"
+                required
+              />
+            </div>
+            <div>
+              <label for="meses">Prazo em meses</label
+              ><input
+                id="meses"
+                type="number"
+                min="1"
+                max="600"
+                step="1"
+                value="24"
+                required
+              />
+            </div>
+          </div>
+        </fieldset>
+        <button>Comparar cenários</button>
+      </form>
+      <p id="status" role="status"></p>
+      <section id="comparativo" hidden>
+        <h2>Seu comparativo</h2>
+        <div id="grafico"></div>
+        <button id="salvar" type="button" disabled>
+          Salvar na minha conta
+        </button>
+      </section>
+      <p class="note">
+        Taxas anuais convertidas em taxas mensais equivalentes. Aportes no fim
+        do mês; sem impostos, tarifas ou inflação. Valores nominais para
+        aprendizagem.
+      </p>
+      <h2>Comparações salvas</h2>
+      <p id="historico-status" role="status"></p>
+      <div id="historico"></div>
+    </main>
+  </body>
+</html>

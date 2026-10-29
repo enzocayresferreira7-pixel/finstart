@@ -1,0 +1,70 @@
+{
+  "data": "2026-10-28",
+  "viewportSolicitado": 390,
+  "resultados": [
+    {
+      "content": 390,
+      "description": true,
+      "h1": 1,
+      "page": "/index.html",
+      "unnamedInputs": 0,
+      "width": 390
+    },
+    {
+      "content": 390,
+      "description": true,
+      "h1": 1,
+      "page": "/simulador.html",
+      "unnamedInputs": 0,
+      "width": 390
+    },
+    {
+      "content": 390,
+      "description": true,
+      "h1": 1,
+      "page": "/juros.html",
+      "unnamedInputs": 0,
+      "width": 390
+    },
+    {
+      "content": 390,
+      "description": true,
+      "h1": 1,
+      "page": "/metas.html",
+      "unnamedInputs": 0,
+      "width": 390
+    },
+    {
+      "content": 390,
+      "description": true,
+      "h1": 1,
+      "page": "/conta.html",
+      "unnamedInputs": 0,
+      "width": 390
+    },
+    {
+      "content": 390,
+      "description": true,
+      "h1": 1,
+      "page": "/aprender.html",
+      "unnamedInputs": 0,
+      "width": 390
+    },
+    {
+      "content": 390,
+      "description": true,
+      "h1": 1,
+      "page": "/comparar.html",
+      "unnamedInputs": 0,
+      "width": 390
+    },
+    {
+      "content": 390,
+      "description": true,
+      "h1": 1,
+      "page": "/projeto.html",
+      "unnamedInputs": 0,
+      "width": 390
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <script src="ambiente.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <title>FinStart | Metas financeiras</title>
+    <script type="module" src="metas.js"></script>
+    <script type="module" src="shell.js"></script>
+    <meta
+      name="description"
+      content="FinStart | Metas financeiras: educação financeira, simulações e planejamento para jovens."
+    />
+  </head>
+  <body>
+    <a class="skip-link" href="#principal">Pular para o conteúdo</a>
+    <header>
+      <a href="index.html"
+        ><img src="logo_FinStart.png" alt="FinStart" width="110"
+      /></a>
+      <nav aria-label="Principal">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="simulador.html">Orçamento</a></li>
+          <li><a href="juros.html">Juros compostos</a></li>
+          <li><a href="metas.html">Metas</a></li>
+          <li><a href="aprender.html">Aprender</a></li>
+          <li><a href="comparar.html">Comparar</a></li>
+          <li><a href="projeto.html">Sobre</a></li>
+
+          <li><a href="conta.html">Meu painel</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main id="principal">
+      <span class="eyebrow">UM PASSO DE CADA VEZ</span>
+      <h1>Transforme planos em metas</h1>
+      <p>Defina seu objetivo e atualize o total que já conseguiu guardar.</p>
+      <p id="status" role="status"></p>
+      <section id="area" hidden>
+        <form id="meta-form" class="grid">
+          <div>
+            <label for="titulo">Nome da meta</label
+            ><input
+              id="titulo"
+              placeholder="Minha reserva de emergência"
+              minlength="3"
+              maxlength="80"
+              required
+            />
+          </div>
+          <div>
+            <label for="alvo">Quanto deseja juntar? (R$)</label
+            ><input
+              id="alvo"
+              type="number"
+              min="0.01"
+              max="1000000000"
+              step="1"
+              required
+            />
+          </div>
+          <div>
+            <label for="prazo">Prazo em meses</label
+            ><input
+              id="prazo"
+              type="number"
+              min="1"
+              max="600"
+              step="1"
+              value="12"
+              required
+            />
+          </div>
+          <button>Criar meta</button>
+        </form>
+        <h2>Meus objetivos</h2>
+        <div id="lista" class="grid"></div>
+      </section>
+      <p><a href="conta.html">Acessar meu painel ou entrar</a></p>
+    </main>
+  </body>
+</html>

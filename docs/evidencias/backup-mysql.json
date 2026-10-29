@@ -1,0 +1,16 @@
+{
+  "data": "2026-10-28",
+  "resultado": "Dump restaurado em banco isolado; contagens comparadas ao banco de origem",
+  "tabelas": {
+    "categoria": 13,
+    "conteudo": 15,
+    "juros": 4,
+    "metas": 3,
+    "progresso_meta": 3,
+    "sessoes": 1,
+    "simulacao_investimento": 0,
+    "simulacoes": 4,
+    "tipo_investimento": 3,
+    "usuarios": 2
+  }
+}

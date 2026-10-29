@@ -1,0 +1,32 @@
+{
+  "revisao": "2026-10-28",
+  "criterio_concluido": "Código implementado e cenário relevante verificado. Sem atribuição retroativa de autoria ou reuniões.",
+  "a_fazer": [
+    "Conferir o modelo oficial de Avisos para a terceira entrega",
+    "Apresentação oral e explicação individual do grupo",
+    "Publicar o código após obter acesso de colaborador no GitHub do grupo"
+  ],
+  "em_andamento": ["Preparação do pacote de correção e conferência pelo grupo"],
+  "concluido": [
+    "Ampliar telas: aprender, comparação, metas completas e progresso",
+    "Integrar Express, API, autenticação e SQL",
+    "Validar MySQL 8.0.45 isolado e manter SQLite local com dados preservados",
+    "Aplicar práticas das aulas 01–15 nos pontos pertinentes",
+    "Verificar 10 cenários de teste locais e 1 integração MySQL",
+    "Conferir oito páginas em 320, 390, 768 e 1280 px"
+  ],
+  "historico_observavel": [
+    {
+      "data": "2026-10-28",
+      "evento": "Revisão dos 15 PDFs e confronto com feedback e entregas anteriores."
+    },
+    {
+      "data": "2026-10-28",
+      "evento": "Ampliação dos fluxos e testes; MySQL validado com 10 tabelas e 8 FKs."
+    },
+    {
+      "data": "2026-10-28",
+      "evento": "Correção documental preparada para revisão do grupo. A publicação permanece pendente."
+    }
+  ]
+}

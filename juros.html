@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <script src="ambiente.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <title>FinStart | Juros compostos</title>
+    <script type="module" src="juros.js"></script>
+    <script type="module" src="shell.js"></script>
+    <meta
+      name="description"
+      content="FinStart | Juros compostos: educação financeira, simulações e planejamento para jovens."
+    />
+  </head>
+  <body>
+    <a class="skip-link" href="#principal">Pular para o conteúdo</a>
+    <header>
+      <a href="index.html"
+        ><img src="logo_FinStart.png" alt="FinStart" width="110"
+      /></a>
+      <nav aria-label="Principal">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="simulador.html">Orçamento</a></li>
+          <li><a href="juros.html">Juros compostos</a></li>
+          <li><a href="metas.html">Metas</a></li>
+          <li><a href="aprender.html">Aprender</a></li>
+          <li><a href="comparar.html">Comparar</a></li>
+          <li><a href="projeto.html">Sobre</a></li>
+
+          <li><a href="conta.html">Meu painel</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main id="principal">
+      <span class="eyebrow">PLANEJE O FUTURO</span>
+      <h1>Seu dinheiro ao longo do tempo</h1>
+      <p>Explore como os aportes e os juros compostos afetam uma projeção.</p>
+      <form id="juros-form" class="grid">
+        <div>
+          <label for="inicial">Valor inicial (R$)</label
+          ><input
+            id="inicial"
+            type="number"
+            value="1000"
+            min="0"
+            max="1000000000"
+            step="0.01"
+            required
+          />
+        </div>
+        <div>
+          <label for="aporte">Aporte mensal (R$)</label
+          ><input
+            id="aporte"
+            type="number"
+            value="200"
+            min="0"
+            max="1000000000"
+            step="1"
+            required
+          />
+        </div>
+        <div>
+          <label for="taxa">Taxa mensal (%)</label
+          ><input
+            id="taxa"
+            type="number"
+            value="0.5"
+            min="0"
+            max="10"
+            step="0.001"
+            required
+          />
+        </div>
+        <div>
+          <label for="meses">Prazo em meses</label
+          ><input
+            id="meses"
+            type="number"
+            value="24"
+            min="1"
+            max="600"
+            step="1"
+            required
+          />
+        </div>
+        <button>Calcular projeção</button>
+      </form>
+      <p>
+        Aportes no fim de cada mês, com taxa constante. Valores nominais, sem
+        impostos, tarifas ou inflação. Simulação educativa; o resultado não é
+        garantia de rendimento.
+      </p>
+      <p id="status" role="status"></p>
+      <section id="projecao" hidden>
+        <h2>Resultado da projeção</h2>
+        <div id="resumo" class="grid"></div>
+        <h2>Evolução do saldo</h2>
+        <div
+          id="barras"
+          class="barras"
+          aria-label="Evolução do saldo por período"
+        ></div>
+        <button id="salvar">Salvar projeção na minha conta</button>
+      </section>
+      <h2>Projeções salvas</h2>
+      <p id="historico-status" role="status"></p>
+      <div id="historico" class="grid"></div>
+    </main>
+  </body>
+</html>

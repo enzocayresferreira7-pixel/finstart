@@ -1,0 +1,175 @@
+{
+  "integridade": [
+    {
+      "integrity_check": "ok"
+    }
+  ],
+  "chavesEstrangeiras": [],
+  "tabelas": [
+    {
+      "name": "categoria",
+      "sql": "CREATE TABLE categoria (\r\n id INTEGER PRIMARY KEY, nome TEXT NOT NULL UNIQUE, descricao TEXT NOT NULL\r\n)"
+    },
+    {
+      "name": "conteudo",
+      "sql": "CREATE TABLE conteudo (\r\n id INTEGER PRIMARY KEY, categoria_id INTEGER NOT NULL REFERENCES categoria(id),\r\n titulo TEXT NOT NULL, texto TEXT NOT NULL, nivel TEXT NOT NULL DEFAULT 'basico',\r\n fontes_json TEXT NOT NULL DEFAULT '[]',\r\n data_publicacao TEXT NOT NULL DEFAULT CURRENT_DATE\r\n)"
+    },
+    {
+      "name": "juros",
+      "sql": "CREATE TABLE juros (\r\n id INTEGER PRIMARY KEY,\r\n usuario_id INTEGER NOT NULL REFERENCES usuarios(id) ON DELETE CASCADE,\r\n inicial_centavos INTEGER NOT NULL CHECK(inicial_centavos BETWEEN 0 AND 100000000000),\r\n aporte_centavos INTEGER NOT NULL CHECK(aporte_centavos BETWEEN 0 AND 100000000000),\r\n taxa REAL NOT NULL CHECK(taxa BETWEEN 0 AND 10),\r\n meses INTEGER NOT NULL CHECK(meses BETWEEN 1 AND 600),\r\n criado_em TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP\r\n)"
+    },
+    {
+      "name": "metas",
+      "sql": "CREATE TABLE metas (\r\n prazo_meses INTEGER CHECK(prazo_meses BETWEEN 1 AND 600),\r\n data_inicio TEXT,\r\n status TEXT NOT NULL DEFAULT 'em_andamento',\r\n id INTEGER PRIMARY KEY,\r\n usuario_id INTEGER NOT NULL REFERENCES usuarios(id) ON DELETE CASCADE,\r\n titulo TEXT NOT NULL CHECK(length(titulo) BETWEEN 3 AND 80),\r\n alvo_centavos INTEGER NOT NULL CHECK(alvo_centavos BETWEEN 1 AND 100000000000),\r\n guardado_centavos INTEGER NOT NULL DEFAULT 0 CHECK(guardado_centavos>=0 AND guardado_centavos<=alvo_centavos),\r\n criado_em TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP\r\n)"
+    },
+    {
+      "name": "progresso_meta",
+      "sql": "CREATE TABLE progresso_meta (\r\n id INTEGER PRIMARY KEY, meta_id INTEGER NOT NULL REFERENCES metas(id) ON DELETE CASCADE,\r\n variacao_centavos INTEGER NOT NULL, saldo_centavos INTEGER NOT NULL CHECK(saldo_centavos>=0),\r\n data_registro TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP\r\n)"
+    },
+    {
+      "name": "sessoes",
+      "sql": "CREATE TABLE sessoes (\r\n id TEXT PRIMARY KEY,\r\n usuario_id INTEGER NOT NULL REFERENCES usuarios(id) ON DELETE CASCADE,\r\n expira_em INTEGER NOT NULL\r\n)"
+    },
+    {
+      "name": "simulacao_investimento",
+      "sql": "CREATE TABLE simulacao_investimento (\r\n juros_id INTEGER NOT NULL REFERENCES juros(id) ON DELETE CASCADE,\r\n tipo_investimento_id INTEGER NOT NULL REFERENCES tipo_investimento(id),\r\n taxa_anual_aplicada REAL NOT NULL, valor_final_centavos INTEGER NOT NULL,\r\n PRIMARY KEY(juros_id,tipo_investimento_id)\r\n)"
+    },
+    {
+      "name": "simulacoes",
+      "sql": "CREATE TABLE simulacoes (\r\n id INTEGER PRIMARY KEY,\r\n usuario_id INTEGER NOT NULL REFERENCES usuarios(id) ON DELETE CASCADE,\r\n renda_centavos INTEGER NOT NULL CHECK(renda_centavos BETWEEN 1 AND 100000000000),\r\n criado_em TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP\r\n)"
+    },
+    {
+      "name": "tipo_investimento",
+      "sql": "CREATE TABLE tipo_investimento (\r\n id INTEGER PRIMARY KEY, nome TEXT NOT NULL UNIQUE, descricao TEXT NOT NULL,\r\n taxa_anual_padrao REAL NOT NULL CHECK(taxa_anual_padrao BETWEEN 0 AND 100)\r\n)"
+    },
+    {
+      "name": "usuarios",
+      "sql": "CREATE TABLE usuarios (\r\n id INTEGER PRIMARY KEY,\r\n nome TEXT NOT NULL CHECK(length(nome) BETWEEN 3 AND 50),\r\n email TEXT NOT NULL UNIQUE COLLATE NOCASE,\r\n senha_hash TEXT NOT NULL,\r\n criado_em TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP\r\n)"
+    }
+  ],
+  "relacoes": [
+    {
+      "table": "simulacoes",
+      "foreignKeys": [
+        {
+          "id": 0,
+          "seq": 0,
+          "table": "usuarios",
+          "from": "usuario_id",
+          "to": "id",
+          "on_update": "NO ACTION",
+          "on_delete": "CASCADE",
+          "match": "NONE"
+        }
+      ]
+    },
+    {
+      "table": "juros",
+      "foreignKeys": [
+        {
+          "id": 0,
+          "seq": 0,
+          "table": "usuarios",
+          "from": "usuario_id",
+          "to": "id",
+          "on_update": "NO ACTION",
+          "on_delete": "CASCADE",
+          "match": "NONE"
+        }
+      ]
+    },
+    {
+      "table": "metas",
+      "foreignKeys": [
+        {
+          "id": 0,
+          "seq": 0,
+          "table": "usuarios",
+          "from": "usuario_id",
+          "to": "id",
+          "on_update": "NO ACTION",
+          "on_delete": "CASCADE",
+          "match": "NONE"
+        }
+      ]
+    },
+    {
+      "table": "sessoes",
+      "foreignKeys": [
+        {
+          "id": 0,
+          "seq": 0,
+          "table": "usuarios",
+          "from": "usuario_id",
+          "to": "id",
+          "on_update": "NO ACTION",
+          "on_delete": "CASCADE",
+          "match": "NONE"
+        }
+      ]
+    },
+    {
+      "table": "conteudo",
+      "foreignKeys": [
+        {
+          "id": 0,
+          "seq": 0,
+          "table": "categoria",
+          "from": "categoria_id",
+          "to": "id",
+          "on_update": "NO ACTION",
+          "on_delete": "NO ACTION",
+          "match": "NONE"
+        }
+      ]
+    },
+    {
+      "table": "simulacao_investimento",
+      "foreignKeys": [
+        {
+          "id": 0,
+          "seq": 0,
+          "table": "tipo_investimento",
+          "from": "tipo_investimento_id",
+          "to": "id",
+          "on_update": "NO ACTION",
+          "on_delete": "NO ACTION",
+          "match": "NONE"
+        },
+        {
+          "id": 1,
+          "seq": 0,
+          "table": "juros",
+          "from": "juros_id",
+          "to": "id",
+          "on_update": "NO ACTION",
+          "on_delete": "CASCADE",
+          "match": "NONE"
+        }
+      ]
+    },
+    {
+      "table": "progresso_meta",
+      "foreignKeys": [
+        {
+          "id": 0,
+          "seq": 0,
+          "table": "metas",
+          "from": "meta_id",
+          "to": "id",
+          "on_update": "NO ACTION",
+          "on_delete": "CASCADE",
+          "match": "NONE"
+        }
+      ]
+    }
+  ],
+  "consultaRelacionada": [
+    {
+      "nome": "Aluno Demonstração",
+      "titulo": "Reserva de emergência",
+      "alvo_centavos": 600000,
+      "guardado_centavos": 150000
+    }
+  ]
+}

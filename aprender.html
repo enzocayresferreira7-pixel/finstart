@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <script src="ambiente.js"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Aprender sobre finanças na FinStart: aprenda, simule e planeje."
+    />
+    <title>FinStart | Aprender sobre finanças</title>
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="aprender.js"></script>
+    <script type="module" src="shell.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#principal">Pular para o conteúdo</a>
+    <header>
+      <a href="index.html"
+        ><img src="logo_FinStart.png" alt="FinStart" width="110"
+      /></a>
+      <nav aria-label="Principal">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="simulador.html">Orçamento</a></li>
+          <li><a href="juros.html">Juros compostos</a></li>
+          <li><a href="metas.html">Metas</a></li>
+          <li><a href="aprender.html">Aprender</a></li>
+          <li><a href="comparar.html">Comparar</a></li>
+          <li><a href="projeto.html">Sobre</a></li>
+
+          <li><a href="conta.html">Meu painel</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main id="principal">
+      <span class="eyebrow">CONHECIMENTO QUE VIRA HÁBITO</span>
+      <h1>Comece pelo que faz sentido para você</h1>
+      <p>
+        Aprenda no seu ritmo: do orçamento aos riscos dos investimentos, com
+        conteúdos básicos, intermediários e avançados e referências oficiais.
+      </p>
+      <section aria-label="Filtrar conteúdos" class="grid">
+        <div>
+          <label for="busca">Buscar assunto</label
+          ><input
+            id="busca"
+            type="search"
+            maxlength="100"
+            placeholder="Ex.: reserva"
+          />
+        </div>
+        <div>
+          <label for="categoria">Categoria</label
+          ><select id="categoria">
+            <option value="">Todas as categorias</option>
+          </select>
+        </div>
+        <div>
+          <label for="nivel">Nível</label
+          ><select id="nivel">
+            <option value="">Todos os níveis</option>
+            <option value="basico">Básico</option>
+            <option value="intermediario">Intermediário</option>
+            <option value="avancado">Avançado</option>
+          </select>
+        </div>
+      </section>
+      <p class="learning-guide">
+        Começando agora? Escolha Básico. Para conectar conceitos, avance ao
+        Intermediário. O nível Avançado aprofunda riscos e limitações; não
+        habilita operações financeiras.
+      </p>
+      <button type="button" id="limpar-filtros" class="secondary">
+        Limpar filtros
+      </button>
+      <p id="status" role="status"></p>
+      <p id="vazio" hidden>
+        Nenhum conteúdo corresponde aos filtros. Tente outro termo ou use Limpar
+        filtros.
+      </p>
+      <div id="artigos" class="grid"></div>
+      <aside class="note">
+        <h2>Da leitura para a prática</h2>
+        <p>
+          <a href="simulador.html">Organizar orçamento</a> ·
+          <a href="metas.html">Planejar uma meta</a> ·
+          <a href="comparar.html">Comparar cenários</a>
+        </p>
+        <p>
+          Material educativo. Os resumos são da FinStart, com links para as
+          fontes consultadas. As simulações usam hipóteses e não representam
+          promessa de rendimento.
+        </p>
+      </aside>
+    </main>
+  </body>
+</html>

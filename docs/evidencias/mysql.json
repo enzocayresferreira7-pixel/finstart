@@ -1,0 +1,418 @@
+{
+  "data": "2026-10-28",
+  "ambiente": "MySQL isolado com dados fictícios. Sem credenciais, hashes ou sessões exportados.",
+  "version": [
+    {
+      "versao": "8.0.45"
+    }
+  ],
+  "tabelas": [
+    {
+      "tabela": "categoria",
+      "coluna": "id",
+      "tipo": "int",
+      "nulo": "NO",
+      "chave": "PRI"
+    },
+    {
+      "tabela": "categoria",
+      "coluna": "nome",
+      "tipo": "varchar(255)",
+      "nulo": "NO",
+      "chave": "UNI"
+    },
+    {
+      "tabela": "categoria",
+      "coluna": "descricao",
+      "tipo": "varchar(255)",
+      "nulo": "NO",
+      "chave": ""
+    },
+    {
+      "tabela": "conteudo",
+      "coluna": "id",
+      "tipo": "int",
+      "nulo": "NO",
+      "chave": "PRI"
+    },
+    {
+      "tabela": "conteudo",
+      "coluna": "categoria_id",
+      "tipo": "int",
+      "nulo": "NO",
+      "chave": "MUL"
+    },
+    {
+      "tabela": "conteudo",
+      "coluna": "titulo",
+      "tipo": "varchar(255)",
+      "nulo": "NO",
+      "chave": ""
+    },
+    {
+      "tabela": "conteudo",
+      "coluna": "texto",
+      "tipo": "longtext",
+      "nulo": "NO",
+      "chave": ""
+    },
+    {
+      "tabela": "conteudo",
+      "coluna": "nivel",
+      "tipo": "varchar(255)",
+      "nulo": "NO",
+      "chave": ""
+    },
+    {
+      "tabela": "conteudo",
+      "coluna": "data_publicacao",
+      "tipo": "date",
+      "nulo": "NO",
+      "chave": ""
+    },
+    {
+      "tabela": "conteudo",
+      "coluna": "fontes_json",
+      "tipo": "longtext",
+      "nulo": "NO",
+      "chave": ""
+    },
+    {
+      "tabela": "juros",
+      "coluna": "id",
+      "tipo": "int",
+      "nulo": "NO",
+      "chave": "PRI"
+    },
+    {
+      "tabela": "juros",
+      "coluna": "usuario_id",
+      "tipo": "int",
+      "nulo": "NO",
+      "chave": "MUL"
+    },
+    {
+      "tabela": "juros",
+      "coluna": "inicial_centavos",
+      "tipo": "bigint",
+      "nulo": "NO",
+      "chave": ""
+    },
+    {
+      "tabela": "juros",
+      "coluna": "aporte_centavos",
+      "tipo": "bigint",
+      "nulo": "NO",
+      "chave": ""
+    },
+    {
+      "tabela": "juros",
+      "coluna": "taxa",
+      "tipo": "double",
+      "nulo": "NO",
+      "chave": ""
+    },
+    {
+      "tabela": "juros",
+      "coluna": "meses",
+      "tipo": "int",
+      "nulo": "NO",
+      "chave": ""
+    },
+    {
+      "tabela": "juros",
+      "coluna": "criado_em",
+      "tipo": "datetime",
+      "nulo": "NO",
+      "chave": ""
+    },
+    {
+      "tabela": "metas",
+      "coluna": "prazo_meses",
+      "tipo": "int",
+      "nulo": "YES",
+      "chave": ""
+    },
+    {
+      "tabela": "metas",
+      "coluna": "data_inicio",
+      "tipo": "date",
+      "nulo": "YES",
+      "chave": ""
+    },
+    {
+      "tabela": "metas",
+      "coluna": "status",
+      "tipo": "varchar(255)",
+      "nulo": "NO",
+      "chave": ""
+    },
+    {
+      "tabela": "metas",
+      "coluna": "id",
+      "tipo": "int",
+      "nulo": "NO",
+      "chave": "PRI"
+    },
+    {
+      "tabela": "metas",
+      "coluna": "usuario_id",
+      "tipo": "int",
+      "nulo": "NO",
+      "chave": "MUL"
+    },
+    {
+      "tabela": "metas",
+      "coluna": "titulo",
+      "tipo": "varchar(255)",
+      "nulo": "NO",
+      "chave": ""
+    },
+    {
+      "tabela": "metas",
+      "coluna": "alvo_centavos",
+      "tipo": "bigint",
+      "nulo": "NO",
+      "chave": ""
+    },
+    {
+      "tabela": "metas",
+      "coluna": "guardado_centavos",
+      "tipo": "bigint",
+      "nulo": "NO",
+      "chave": ""
+    },
+    {
+      "tabela": "metas",
+      "coluna": "criado_em",
+      "tipo": "datetime",
+      "nulo": "NO",
+      "chave": ""
+    },
+    {
+      "tabela": "progresso_meta",
+      "coluna": "id",
+      "tipo": "int",
+      "nulo": "NO",
+      "chave": "PRI"
+    },
+    {
+      "tabela": "progresso_meta",
+      "coluna": "meta_id",
+      "tipo": "int",
+      "nulo": "NO",
+      "chave": "MUL"
+    },
+    {
+      "tabela": "progresso_meta",
+      "coluna": "variacao_centavos",
+      "tipo": "bigint",
+      "nulo": "NO",
+      "chave": ""
+    },
+    {
+      "tabela": "progresso_meta",
+      "coluna": "saldo_centavos",
+      "tipo": "bigint",
+      "nulo": "NO",
+      "chave": ""
+    },
+    {
+      "tabela": "progresso_meta",
+      "coluna": "data_registro",
+      "tipo": "datetime",
+      "nulo": "NO",
+      "chave": ""
+    },
+    {
+      "tabela": "sessoes",
+      "coluna": "id",
+      "tipo": "varchar(255)",
+      "nulo": "NO",
+      "chave": "PRI"
+    },
+    {
+      "tabela": "sessoes",
+      "coluna": "usuario_id",
+      "tipo": "int",
+      "nulo": "NO",
+      "chave": "MUL"
+    },
+    {
+      "tabela": "sessoes",
+      "coluna": "expira_em",
+      "tipo": "bigint",
+      "nulo": "NO",
+      "chave": ""
+    },
+    {
+      "tabela": "simulacao_investimento",
+      "coluna": "juros_id",
+      "tipo": "int",
+      "nulo": "NO",
+      "chave": "PRI"
+    },
+    {
+      "tabela": "simulacao_investimento",
+      "coluna": "tipo_investimento_id",
+      "tipo": "int",
+      "nulo": "NO",
+      "chave": "PRI"
+    },
+    {
+      "tabela": "simulacao_investimento",
+      "coluna": "taxa_anual_aplicada",
+      "tipo": "double",
+      "nulo": "NO",
+      "chave": ""
+    },
+    {
+      "tabela": "simulacao_investimento",
+      "coluna": "valor_final_centavos",
+      "tipo": "bigint",
+      "nulo": "NO",
+      "chave": ""
+    },
+    {
+      "tabela": "simulacoes",
+      "coluna": "id",
+      "tipo": "int",
+      "nulo": "NO",
+      "chave": "PRI"
+    },
+    {
+      "tabela": "simulacoes",
+      "coluna": "usuario_id",
+      "tipo": "int",
+      "nulo": "NO",
+      "chave": "MUL"
+    },
+    {
+      "tabela": "simulacoes",
+      "coluna": "renda_centavos",
+      "tipo": "bigint",
+      "nulo": "NO",
+      "chave": ""
+    },
+    {
+      "tabela": "simulacoes",
+      "coluna": "criado_em",
+      "tipo": "datetime",
+      "nulo": "NO",
+      "chave": ""
+    },
+    {
+      "tabela": "tipo_investimento",
+      "coluna": "id",
+      "tipo": "int",
+      "nulo": "NO",
+      "chave": "PRI"
+    },
+    {
+      "tabela": "tipo_investimento",
+      "coluna": "nome",
+      "tipo": "varchar(255)",
+      "nulo": "NO",
+      "chave": "UNI"
+    },
+    {
+      "tabela": "tipo_investimento",
+      "coluna": "descricao",
+      "tipo": "varchar(255)",
+      "nulo": "NO",
+      "chave": ""
+    },
+    {
+      "tabela": "tipo_investimento",
+      "coluna": "taxa_anual_padrao",
+      "tipo": "double",
+      "nulo": "NO",
+      "chave": ""
+    },
+    {
+      "tabela": "usuarios",
+      "coluna": "id",
+      "tipo": "int",
+      "nulo": "NO",
+      "chave": "PRI"
+    },
+    {
+      "tabela": "usuarios",
+      "coluna": "nome",
+      "tipo": "varchar(255)",
+      "nulo": "NO",
+      "chave": ""
+    },
+    {
+      "tabela": "usuarios",
+      "coluna": "email",
+      "tipo": "varchar(255)",
+      "nulo": "NO",
+      "chave": "UNI"
+    },
+    {
+      "tabela": "usuarios",
+      "coluna": "senha_hash",
+      "tipo": "varchar(255)",
+      "nulo": "NO",
+      "chave": ""
+    },
+    {
+      "tabela": "usuarios",
+      "coluna": "criado_em",
+      "tipo": "datetime",
+      "nulo": "NO",
+      "chave": ""
+    }
+  ],
+  "relacoes": [
+    {
+      "tabela": "conteudo",
+      "coluna": "categoria_id",
+      "referencia": "categoria",
+      "destino": "id"
+    },
+    {
+      "tabela": "juros",
+      "coluna": "usuario_id",
+      "referencia": "usuarios",
+      "destino": "id"
+    },
+    {
+      "tabela": "metas",
+      "coluna": "usuario_id",
+      "referencia": "usuarios",
+      "destino": "id"
+    },
+    {
+      "tabela": "progresso_meta",
+      "coluna": "meta_id",
+      "referencia": "metas",
+      "destino": "id"
+    },
+    {
+      "tabela": "sessoes",
+      "coluna": "usuario_id",
+      "referencia": "usuarios",
+      "destino": "id"
+    },
+    {
+      "tabela": "simulacao_investimento",
+      "coluna": "juros_id",
+      "referencia": "juros",
+      "destino": "id"
+    },
+    {
+      "tabela": "simulacao_investimento",
+      "coluna": "tipo_investimento_id",
+      "referencia": "tipo_investimento",
+      "destino": "id"
+    },
+    {
+      "tabela": "simulacoes",
+      "coluna": "usuario_id",
+      "referencia": "usuarios",
+      "destino": "id"
+    }
+  ]
+}

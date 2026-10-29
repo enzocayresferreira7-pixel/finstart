@@ -1,0 +1,16 @@
+{
+  "data": "2026-10-28",
+  "suite_local": {
+    "aprovados": 10,
+    "falhas": 0,
+    "mysql_opcional_ignorado": 1
+  },
+  "suite_mysql_executada_separadamente": {
+    "aprovados": 1,
+    "falhas": 0,
+    "versao": "8.0.45",
+    "tabelas": 10,
+    "chaves_estrangeiras": 8
+  },
+  "cobertura": "CRUD, propriedade, JWT e logout, persistência e reinício, backup SQLite, HTTP inválido, campos e bloqueio file://, conteúdos, cenários, edição e histórico de metas, transação/rollback MySQL. Não equivale a teste exaustivo ou auditoria de produção. Migração do banco antigo validada sem perda de registros e sem duplicar o ponto inicial."
+}
