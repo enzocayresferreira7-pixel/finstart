@@ -5,11 +5,11 @@ export async function api(path, method = "GET", body) {
       method,
       headers: body !== undefined ? { "Content-Type": "application/json" } : {},
       body: body !== undefined ? JSON.stringify(body) : undefined,
-      signal: AbortSignal.timeout(15000),
+      signal: AbortSignal.timeout(90000),
     });
   } catch {
     throw Error(
-      "Não foi possível conectar à FinStart. Verifique a conexão e se o servidor está em execução.",
+      "O servidor pode estar iniciando. Aguarde um momento e consulte seu histórico antes de repetir uma operação de salvamento. Verifique também sua conexão.",
     );
   }
   let data = null;

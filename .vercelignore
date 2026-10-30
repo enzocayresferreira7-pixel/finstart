@@ -1,0 +1,9 @@
+.env*
+data
+backups
+tmp
+node_modules
+docs
+tests
+*.log
+*.bundle
