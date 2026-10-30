@@ -2,7 +2,15 @@
 
 Plataforma web de educação financeira e planejamento para jovens. PUC-Campinas, Programação Web (2181161, conforme modelo oficial), turma 101.
 
-## Executar no Windows
+## Apresentar a versão online
+
+Abra https://finstart-publicacao.vercel.app em qualquer navegador com internet. Não é necessário instalar programas nem abrir terminal. Antes de apresentar, abra https://finstart-publicacao.vercel.app/api/saude e aguarde o retorno de banco conectado: o servidor gratuito pode demorar para despertar.
+
+Frontend na Vercel, API Node/Express no Render e MySQL persistente na Aiven. O código do proxy está em `vercel.json`, a seleção dos arquivos públicos em `scripts/build-static.js`, a inicialização da API em `server/index.js`, a conexão TLS em `server/mysql.js` e as tabelas em `database/schema.mysql.sql`. Credenciais ficam nas variáveis privadas do Render. Consulte `docs/PUBLICACAO.md` para o alcance dos testes e `docs/APRESENTACAO-ONLINE.md` para o roteiro.
+
+O ZIP guarda o código e os documentos, não os dados do MySQL online. Não misture arquivos soltos com versões antigas: extraia o pacote atualizado em uma pasta própria. A conexão automática GitHub → deploy ainda não foi concluída; um commit sozinho não confirma atualização do site.
+
+## Executar localmente no Windows
 
 Instale Node.js 24 ou superior e dê dois cliques em **INICIAR-FINSTART.cmd**. Na primeira execução, é necessária conexão à internet para instalar as dependências. O inicializador cria a configuração privada, inicia/confere o servidor e abre http://127.0.0.1:3000. Não abra o index.html diretamente como arquivo.
 

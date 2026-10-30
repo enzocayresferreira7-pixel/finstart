@@ -1,0 +1,36 @@
+FINSTART - Configuração da publicação
+
+Frontend público: https://finstart-publicacao.vercel.app
+API: https://finstart-api-l60v.onrender.com
+Código: https://github.com/enzocayresferreira7-pixel/finstart
+
+VERCEL
+Publicar somente a saída de node scripts/build-static.js.
+vercel.json contém o destino do proxy /api e os cabeçalhos.
+A publicação atual foi feita pela CLI, com pasta estática contendo os 24 arquivos públicos.
+O deploy automático pelo GitHub ainda não foi validado.
+
+RENDER (serviço Node nativo)
+Build: pnpm install --frozen-lockfile
+Start: node server/index.js
+NODE_VERSION=24.11.0
+NODE_ENV=production
+HOST=0.0.0.0
+PORT é fornecida pelo provedor.
+PUBLIC_ORIGIN=https://finstart-publicacao.vercel.app
+DB_DRIVER=mysql
+DB_SSL=true
+
+Valores privados a configurar no painel, nunca neste arquivo:
+DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASSWORD, DB_SSL_CA, JWT_SECRET.
+JWT_SECRET deve ter pelo menos 32 caracteres aleatórios.
+DB_SSL_CA contém o certificado CA fornecido pelo serviço MySQL.
+server/mysql.js mantém rejectUnauthorized=true.
+
+AIVEN
+Serviço MySQL persistente. A aplicação conecta por TLS usando as variáveis acima.
+database/schema.mysql.sql descreve as tabelas; server/mysql.js inicializa o esquema.
+Não execute scripts de recriação destrutiva. Não publique credenciais de acesso.
+Não há backup dos registros online no ZIP. Rotina externa de backup e restauração pendente de validação.
+
+Dockerfile e render.yaml são alternativas de implantação; o serviço Render atual usa os comandos Node acima.
